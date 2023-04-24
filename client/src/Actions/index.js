@@ -3,12 +3,11 @@ import axios from "axios";
 export function getRecipe() {
   return async function (dispatch) {
     // var json = await axios.get("/recipes");
-    var json = await fetch("http://localhost:3001/recipes")
-      .then((res) => res.json())
-      .then((response) => console.log(response));
+    const res = await axios.get("/recipes");
+
     return dispatch({
       type: "GET_RECIPES",
-      payload: "prueba",
+      payload: res.data,
     });
   };
 }

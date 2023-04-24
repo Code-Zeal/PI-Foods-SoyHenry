@@ -31,7 +31,8 @@ export default function Home() {
   useEffect(() => {
     dispatch(getRecipe());
   }, [dispatch]);
-
+  console.log(currentRecipes);
+  console.log(allRecipes);
   return (
     <div>
       {allRecipes.length > 0 ? (
