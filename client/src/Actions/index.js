@@ -2,11 +2,13 @@ import axios from "axios";
 
 export function getRecipe() {
   return async function (dispatch) {
-    var json = await axios.get("/recipes");
-
+    // var json = await axios.get("/recipes");
+    var json = await fetch("http://localhost:3001/recipes")
+      .then((res) => res.json())
+      .then((response) => console.log(response));
     return dispatch({
       type: "GET_RECIPES",
-      payload: json.data,
+      payload: "prueba",
     });
   };
 }
@@ -79,11 +81,9 @@ export function postRecipe(payload) {
     return postAxios;
   };
 }
-//ACTION  ADD FAVORITES
 export const addFavorite = (payload) => {
   return { type: "ADD_FAVORITES", payload };
 };
-//ACTION DELETE FAVORITE
 export const deleteFavorite = (id) => {
   return { type: "DELETE_FAVORITES", payload: id };
 };

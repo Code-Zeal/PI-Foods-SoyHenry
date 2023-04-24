@@ -3,7 +3,6 @@ const initialState = {
   allRecipes: [],
   Diets: [],
   detail: [],
-  aux: [],
   favorites: [],
 };
 
@@ -14,7 +13,6 @@ function rooReducer(state = initialState, action) {
         ...state,
         recipes: action.payload,
         allRecipes: action.payload,
-        aux: action.payload,
       };
     case "GET_DIETS":
       return {
@@ -104,11 +102,9 @@ function rooReducer(state = initialState, action) {
       const favoritesFilter = state.favorites.filter(
         (word) => word.id !== action.payload[0].id
       );
-      const allFilter = state.aux.filter((word) => word.id !== action.payload);
       return {
         ...state,
         favorites: favoritesFilter,
-        aux: allFilter,
       };
     default:
       return {

@@ -23,7 +23,6 @@ const model = require("./src/allData/index.js");
 require("dotenv").config();
 const { PORT } = process.env;
 
-// la funcion dietToBd carca los tipos de dieta en la BDD
 const dietToBd = async function () {
   const dietsApi = await model.allDiets();
   try {
